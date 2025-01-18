@@ -16,11 +16,12 @@ export const validateForm = (formData) => {
     errors.email = "Invalid email address";
   }
 
-  const phonePattern = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+  // Updated phone pattern to accept 11 digits without hyphens
+  const phonePattern = /^[0-9]{11}$/;
   if (!formData.phoneNumber) {
-    errors.phoneNumber = "Phone number is required";
+    errors.phoneNumber = "Phone number is required(11 digits)";
   } else if (!phonePattern.test(formData.phoneNumber)) {
-    errors.phoneNumber = "Phone number must be in the format xxx-xxx-xxxx";
+    errors.phoneNumber = "Phone number must be 11 digits";
   }
 
   if (!formData.state) {

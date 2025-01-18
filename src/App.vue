@@ -56,4 +56,14 @@ function deleteCustomer(customer) {
   <div class="mt-10">
     <TanstackTable @edit="openEditCustomer" @delete="deleteCustomer" />
   </div>
+  <footer class="w-full flex justify-center fixed bottom-10">
+    <p class="p-4">
+      Design inspo:
+      <a
+        href="https://dribbble.com/shots/2696581-StrefaKoloru-Customers/attachments/544530?mode=media"
+        class="text-sky-950 underline"
+        >Link</a
+      >
+    </p>
+  </footer>
 </template>

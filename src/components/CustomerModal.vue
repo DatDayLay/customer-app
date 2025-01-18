@@ -59,7 +59,7 @@ const handleSubmit = () => {
     class="fixed inset-0 flex items-center justify-center z-10 bg-black bg-opacity-50 backdrop-blur-sm"
   >
     <div
-      class="sm:w-11/12 xl:w-2/4 lg:w-2/3 w-5/6 md:w-4/5 mx-auto bg-slate-200 rounded-lg shadow-lg flex flex-col relative"
+      class="sm:w-11/12 xl:w-2/4 lg:w-2/3 w-5/6 md:w-4/5 mx-auto bg-slate-200 rounded-lg shadow-lg flex flex-col relative h-auto max-h-[90vh] overflow-y-auto"
     >
       <button
         class="w-fit ml-auto m-4 group hover:text-pink-400"
@@ -81,6 +81,7 @@ const handleSubmit = () => {
           prefix-icon="avatarMan"
           v-model="formData.firstName"
         />
+
         <FormKit
           type="text"
           name="lastName"
@@ -106,10 +107,16 @@ const handleSubmit = () => {
         <FormKit
           type="tel"
           label="Phone number"
-          placeholder="xxx-xxx-xxxx"
-          validation="matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/"
+          placeholder="xxxxxxxxxxx"
+          :validation="[['required'], ['matches', /^\d{11}$/]]"
           prefix-icon="telephone"
           v-model="formData.phoneNumber"
+          validation-visibility="dirty"
+          :validation-messages="{
+            required: 'Phone number is required',
+            matches: 'Phone number must be 11 digits',
+          }"
+        />
         />
       </sub>
       <sub
