@@ -3,8 +3,8 @@ import { ref, computed, watch, toRefs } from "vue";
 import allStates from "../naija-states.json";
 import { useCustomerStore } from "../stores/Customerstore";
 import { validateForm } from "../utils/Validation";
-
 const props = defineProps({
+  // I forgot to incorporate the wysiwyg editor, i got carried away and when i realized time was no longer on my side
   customer: Object,
 });
 const emit = defineEmits(["close"]);
@@ -117,10 +117,9 @@ const handleSubmit = () => {
             matches: 'Phone number must be 11 digits',
           }"
         />
-        />
       </sub>
       <sub
-        class="sm:w-2/4 w-4/5 2xl:ml-56 lg:ml-5 xl:ml-9 md:w-full md:ml-2 flex flex-col justify-evenly sm:ml-8 ml-6 px-4 pt-4 mt-2"
+        class="sm:w-2/4 w-4/5 2xl:ml-56 lg:ml-5 xl:ml-6 md:w-full md:ml-2 flex flex-col justify-evenly sm:ml-8 ml-6 px-4 pt-4 mt-2"
       >
         <FormKit
           type="select"
