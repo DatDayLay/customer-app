@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu-item {
+  @apply cursor-pointer p-0 text-center items-center flex hover:text-slate-200 text-slate-400 h-full;
+}
+
+.menu-icon {
+  @apply text-slate-400 text-base m-auto px-1 group-hover:text-slate-200;
+}
+
+.menu-item-active {
+  @apply text-slate-200 border-b border-pink-300;
+}
+
+.mob-menu {
+  @apply p-0 mx-auto text-slate-400 hover:text-slate-200 text-xl mt-2;
+}
