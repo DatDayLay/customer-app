@@ -36,9 +36,19 @@ function deleteCustomer(index) {
 </script>
 
 <template>
-  <div class="h-screen w-full flex flex-col">
+  <div
+    class="h-screen w-full flex flex-col"
+    style="
+      background: radial-gradient(
+        circle at 50% 50%,
+        white 0%,
+        #f7f7f7 64%,
+        #e5e5e5 96%
+      );
+    "
+  >
     <Navbar />
-    <div class="bg-slate-50 w-full flex flex-row justify-between py-4">
+    <div class="bg-transparent w-full flex flex-row justify-between py-4">
       <h1 class="sm:text-2xl text-sky-950 py-3 mr-auto sm:ml-28 ml-6">
         <i
           class="pi pi-users text-sky-950 sm:text-2xl text-xl m-auto sm:px-0.5"
