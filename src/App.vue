@@ -15,8 +15,8 @@ function openAddCustomer() {
   isModalOpen.value = true;
 }
 
-function openEditCustomer(customer) {
-  selectedCustomer.value = { ...customer }; // Clone the customer object
+function openEditCustomer(index) {
+  selectedCustomer.value = index;
   isModalOpen.value = true;
 }
 
@@ -25,9 +25,13 @@ function closeCustomerModal() {
   selectedCustomer.value = null;
 }
 
-function deleteCustomer(customer) {
-  customerStore.removeCustomer(customer.email);
-  console.log("Customer deleted");
+function deleteCustomer(index) {
+  if (index >= 0 && index < customerStore.customers.length) {
+    customerStore.customers.splice(index, 1);
+    console.log("Customer deleted at index:", index);
+  } else {
+    console.error("Invalid index:", index);
+  }
 }
 </script>
 
@@ -51,7 +55,12 @@ function deleteCustomer(customer) {
     </div>
     <CustomerModal
       v-if="isModalOpen"
-      :customer="selectedCustomer"
+      :customer="
+        selectedCustomerIndex !== null
+          ? customerStore.customers[selectedCustomer]
+          : null
+      "
+      :index="selectedCustomerIndex"
       @close="closeCustomerModal"
     />
     <div class="mt-10">

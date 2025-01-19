@@ -123,13 +123,13 @@ const emit = defineEmits(["edit", "delete"]);
                 </td>
                 <td
                   class="relative cursor-pointer whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
-                  @click="$emit('edit', customer)"
+                  @click="$emit('edit', index)"
                 >
                   <i class="pi pi-pencil"></i>
                 </td>
                 <td
                   class="relative cursor-pointer whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
-                  @click="$emit('delete', customer)"
+                  @click="$emit('delete', index)"
                 >
                   <i class="pi pi-trash"></i>
                 </td>
