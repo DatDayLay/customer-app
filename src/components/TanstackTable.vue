@@ -52,6 +52,12 @@ const emit = defineEmits(["edit", "delete"]);
                   scope="col"
                   class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                 >
+                  Id
+                </th>
+                <th
+                  scope="col"
+                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                >
                   First name
                 </th>
                 <th
@@ -90,7 +96,10 @@ const emit = defineEmits(["edit", "delete"]);
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
-              <tr v-for="customer in filteredCustomers" :key="customer.email">
+              <tr v-for="(customer, index) in filteredCustomers" :key="index">
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                  {{ index + 1 }}
+                </td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                   {{ customer.firstName }}
                 </td>

@@ -132,7 +132,7 @@ const handleSubmit = () => {
         <FormKit type="form" :actions="false">
           <FormKit
             type="checkbox"
-            label="Status (Active)"
+            label="Status (active / inactive)"
             help="Check to mark as active"
             name="status"
             decorator-icon="check"

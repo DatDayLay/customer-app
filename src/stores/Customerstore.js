@@ -2,24 +2,7 @@ import { defineStore } from "pinia";
 
 export const useCustomerStore = defineStore("customer", {
   state: () => ({
-    customers: [
-      {
-        firstName: "John",
-        lastName: "Doe",
-        email: "john@example.com",
-        phoneNumber: "1234567890",
-        state: "Adamawa",
-        status: true,
-      },
-      {
-        firstName: "Jane",
-        lastName: "Doe",
-        email: "jane@example.com",
-        phoneNumber: "9876543210",
-        state: "Kano",
-        status: false,
-      },
-    ],
+    customers: [],
   }),
   actions: {
     addCustomer(customerData) {
