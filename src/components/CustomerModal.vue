@@ -80,6 +80,10 @@ const handleSubmit = () => {
           validation="required"
           prefix-icon="avatarMan"
           v-model="formData.firstName"
+          :classes="{
+            prefixIcon: 'text-sky-950',
+            input: 'text-sky-950',
+          }"
         />
 
         <FormKit
@@ -90,6 +94,10 @@ const handleSubmit = () => {
           validation="required"
           prefix-icon="avatarMan"
           v-model="formData.lastName"
+          :classes="{
+            prefixIcon: 'text-sky-950',
+            input: 'text-sky-950',
+          }"
         />
       </sub>
       <sub
@@ -103,6 +111,10 @@ const handleSubmit = () => {
           validation="required|email"
           prefix-icon="email"
           v-model="formData.email"
+          :classes="{
+            prefixIcon: 'text-sky-950',
+            input: 'text-sky-950',
+          }"
         />
         <FormKit
           type="tel"
@@ -116,6 +128,10 @@ const handleSubmit = () => {
             required: 'Phone number is required',
             matches: 'Phone number must be 11 digits',
           }"
+          :classes="{
+            prefixIcon: 'text-sky-950',
+            input: 'text-sky-950',
+          }"
         />
       </sub>
       <sub
@@ -128,6 +144,10 @@ const handleSubmit = () => {
           name="states"
           v-model="formData.state"
           :options="options"
+          :classes="{
+            prefixIcon: 'text-sky-950',
+            input: 'text-sky-950',
+          }"
         />
         <FormKit type="form" :actions="false">
           <FormKit
