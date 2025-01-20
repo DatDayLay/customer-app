@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import Navbar from "./components/Navbar.vue";
 import CustomerModal from "./components/CustomerModal.vue";
+import CustomerStats from "./components/CustomerStats.vue";
 import TanstackTable from "./components/TanstackTable.vue";
 import { useCustomerStore } from "./stores/Customerstore";
 
@@ -37,7 +38,7 @@ function deleteCustomer(index) {
 
 <template>
   <div
-    class="h-screen w-full flex flex-col"
+    class="min-h-screen w-full flex flex-col m-0 p-0"
     style="
       background: radial-gradient(
         circle at 50% 50%,
@@ -73,6 +74,7 @@ function deleteCustomer(index) {
       :index="selectedCustomerIndex"
       @close="closeCustomerModal"
     />
+    <CustomerStats />
     <div class="mt-10">
       <TanstackTable @edit="openEditCustomer" @delete="deleteCustomer" />
     </div>

@@ -17,3 +17,15 @@
 .mob-menu {
   @apply p-0 mx-auto text-slate-400 hover:text-slate-200 text-xl mt-2;
 }
+.statH4 {
+  @apply my-2 font-sans text-xs md:text-sm lg:text-lg xl:text-lg text-white font-semibold mx-2 border-b border-white;
+}
+.statH1 {
+  @apply my-6 mx-auto font-semibold text-sm sm:text-sm md:text-lg lg:text-3xl xl:text-3xl text-white;
+}
+.statli {
+  @apply flex flex-col w-1/4 rounded-lg list-none;
+}
+.statIcon {
+  @apply text-white text-sm m-auto sm:px-0.5;
+}
