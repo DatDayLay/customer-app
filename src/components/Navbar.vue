@@ -8,9 +8,7 @@ const isMenuOpen = ref(false);
   <nav
     class="w-full bg-sky-950 p-2 flex flex-col z-10 sm:relative sm:h-fit sm:flex-row justify-between items-center"
   >
-    <h1
-      class="text-xl text-gray-200 m-auto sm:ml-28 mb-5 lg:mb-0 xl:mb-0 md:my-auto"
-    >
+    <h1 class="text-xl text-gray-200 m-auto sm:ml-28 mb-5 lg:mb-0 md:my-auto">
       Styro<span class="text-2xl text-pink-300 non-italic">Foam</span>
     </h1>
     <button

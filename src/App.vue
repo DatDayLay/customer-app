@@ -10,15 +10,23 @@ const customerStore = useCustomerStore();
 
 const isModalOpen = ref(false);
 const selectedCustomer = ref(null);
+const isViewMode = ref(false);
 
 function openAddCustomer() {
   selectedCustomer.value = null;
   isModalOpen.value = true;
+  isViewMode.value = false;
 }
 
 function openEditCustomer(index) {
   selectedCustomer.value = index;
   isModalOpen.value = true;
+  isViewMode.value = false;
+}
+function openViewCustomer(index) {
+  selectedCustomer.value = index;
+  isModalOpen.value = true;
+  isViewMode.value = true;
 }
 
 function closeCustomerModal() {
@@ -72,11 +80,16 @@ function deleteCustomer(index) {
           : null
       "
       :index="selectedCustomerIndex"
+      :view-mode="isViewMode"
       @close="closeCustomerModal"
     />
     <CustomerStats />
     <div class="mt-10">
-      <TanstackTable @edit="openEditCustomer" @delete="deleteCustomer" />
+      <TanstackTable
+        @edit="openEditCustomer"
+        @delete="deleteCustomer"
+        @view="openViewCustomer"
+      />
     </div>
     <footer class="w-full flex justify-center mt-auto mb-2">
       <p class="p-4">

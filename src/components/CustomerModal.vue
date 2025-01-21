@@ -4,8 +4,8 @@ import allStates from "../naija-states.json";
 import { useCustomerStore } from "../stores/Customerstore";
 import { validateForm } from "../utils/Validation";
 const props = defineProps({
-  // I forgot to incorporate the wysiwyg editor, i got carried away and when i realized time was no longer on my side
   customer: Object,
+  viewMode: Boolean,
 });
 const emit = defineEmits(["close"]);
 
@@ -60,6 +60,7 @@ const handleSubmit = () => {
   >
     <div
       class="sm:w-11/12 xl:w-2/4 lg:w-2/3 w-5/6 md:w-4/5 mx-auto bg-slate-200 rounded-lg shadow-lg flex flex-col relative h-auto max-h-[90vh] overflow-y-auto"
+      v-if="!viewMode"
     >
       <button
         class="w-fit ml-auto m-4 group hover:text-pink-400"
@@ -169,6 +170,66 @@ const handleSubmit = () => {
           Save Details
         </FormKit>
       </aside>
+    </div>
+    <div
+      class="sm:w-11/12 xl:w-2/4 lg:w-2/3 w-11/12 md:w-4/5 mx-auto bg-slate-200 rounded-lg shadow-lg flex flex-col relative h-auto max-h-[90vh] overflow-y-auto"
+      v-else
+    >
+      <button
+        class="w-fit ml-auto m-4 group hover:text-pink-400"
+        @click="$emit('close')"
+      >
+        <i
+          class="pi pi-times text-xl text-pink-300 group-hover:text-pink-400"
+        ></i>
+      </button>
+      <section class="w-full h-fit flex">
+        <aside class="flex flex-col ml-10 py-4">
+          <h5 class="modalh5">Full Name</h5>
+          <h1
+            class="text-md md:text-lg lg:text-xl font-bold font-roboto text-sky-950"
+          >
+            {{ `${formData.firstName} ${formData.lastName}` }}
+          </h1>
+        </aside>
+      </section>
+      <section class="flex flex-col sm:flex-row justify-between">
+        <aside class="flex flex-col ml-10 py-2">
+          <h5 class="modalh5">Phone Number</h5>
+          <h1
+            class="text-md md:text-lg lg:text-xl font-bold font-roboto text-sky-950"
+          >
+            {{ formData.phoneNumber }}
+          </h1>
+        </aside>
+        <aside class="flex flex-col ml-10 sm:ml-0 sm:mr-10 py-2">
+          <h5 class="modalh5">Email Address</h5>
+          <h1
+            class="text-md md:text-lg lg:text-xl font-bold font-roboto text-sky-950"
+          >
+            {{ formData.email }}
+          </h1>
+        </aside>
+      </section>
+      <section class="flex flex-row justify-between mb-16">
+        <aside class="flex flex-col ml-10 py-4">
+          <h5 class="modalh5">State</h5>
+          <h1
+            class="text-md md:text-lg lg:text-xl font-bold font-roboto text-sky-950"
+          >
+            {{ `${formData.state} State(Nigeria)` }}
+          </h1>
+        </aside>
+        <aside class="flex flex-col mr-10 py-4">
+          <h5 class="modalh5">Status</h5>
+          <h1
+            class="text-md md:text-lg lg:text-xl font-bold font-roboto"
+            :class="customer.status ? 'text-green-700' : 'text-red-800'"
+          >
+            {{ formData.status ? "Active" : "Inactive" }}
+          </h1>
+        </aside>
+      </section>
     </div>
   </div>
 </template>

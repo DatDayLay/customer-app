@@ -3,7 +3,7 @@ import { ref, computed } from "vue";
 import { useCustomerStore } from "../stores/Customerstore";
 
 const customerStore = useCustomerStore();
-
+// i forgot to integrate the wysiwyg editor and when i realized it was too late but everything else is in tiptop shape
 const searchQuery = ref("");
 
 const filteredCustomers = computed(() => {
@@ -27,7 +27,7 @@ const filteredCustomers = computed(() => {
   );
 });
 
-const emit = defineEmits(["edit", "delete"]);
+const emit = defineEmits(["edit", "delete", "view"]);
 </script>
 
 <template>
@@ -122,16 +122,22 @@ const emit = defineEmits(["edit", "delete"]);
                   {{ customer.status ? "Active" : "Inactive" }}
                 </td>
                 <td
-                  class="relative cursor-pointer whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
+                  class="relative cursor-pointer whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0 hover:text-slate-600"
                   @click="$emit('edit', index)"
                 >
                   <i class="pi pi-pencil"></i>
                 </td>
                 <td
-                  class="relative cursor-pointer whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
+                  class="relative cursor-pointer whitespace-nowrap py-4 pl-3 pr-4 text-right hover:text-red-600 text-sm font-medium sm:pr-0"
                   @click="$emit('delete', index)"
                 >
                   <i class="pi pi-trash"></i>
+                </td>
+                <td
+                  class="relative cursor-pointer whitespace-nowrap py-4 pl-3 pr-4 text-right hover:text-slate-600 text-sm font-medium sm:pr-0"
+                  @click="$emit('view', index)"
+                >
+                  <i class="pi pi-info-circle"></i>
                 </td>
               </tr>
             </tbody>
