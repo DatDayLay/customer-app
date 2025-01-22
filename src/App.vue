@@ -8,39 +8,8 @@ import { useCustomerStore } from "./stores/Customerstore";
 
 const customerStore = useCustomerStore();
 
-const isModalOpen = ref(false);
-const selectedCustomer = ref(null);
-const isViewMode = ref(false);
-
-function openAddCustomer() {
-  selectedCustomer.value = null;
-  isModalOpen.value = true;
-  isViewMode.value = false;
-}
-
-function openEditCustomer(index) {
-  selectedCustomer.value = index;
-  isModalOpen.value = true;
-  isViewMode.value = false;
-}
-function openViewCustomer(index) {
-  selectedCustomer.value = index;
-  isModalOpen.value = true;
-  isViewMode.value = true;
-}
-
-function closeCustomerModal() {
-  isModalOpen.value = false;
-  selectedCustomer.value = null;
-}
-
 function deleteCustomer(index) {
-  if (index >= 0 && index < customerStore.customers.length) {
-    customerStore.customers.splice(index, 1);
-    console.log("Customer deleted at index:", index);
-  } else {
-    console.error("Invalid index:", index);
-  }
+  customerStore.removeCustomer(index);
 }
 </script>
 
@@ -66,29 +35,29 @@ function deleteCustomer(index) {
       </h1>
       <button
         class="bg-pink-300 text-white text-sm px-2 py-2 rounded-lg hover:bg-pink-400 w-fit my-auto ml-auto sm:mr-20 mr-4"
-        @click="openAddCustomer"
+        @click="customerStore.openAddCustomer"
       >
         <i class="pi pi-plus text-white text-sm m-auto px-0.5"></i>
         Add Customer
       </button>
     </div>
     <CustomerModal
-      v-if="isModalOpen"
+      v-if="customerStore.isModalOpen"
       :customer="
-        selectedCustomerIndex !== null
-          ? customerStore.customers[selectedCustomer]
+        customerStore.selectedCustomer !== null
+          ? customerStore.customers[customerStore.selectedCustomer]
           : null
       "
-      :index="selectedCustomerIndex"
-      :view-mode="isViewMode"
-      @close="closeCustomerModal"
+      :index="customerStore.selectedCustomer"
+      :view-mode="customerStore.isViewMode"
+      @close="customerStore.closeCustomerModal"
     />
     <CustomerStats />
     <div class="mt-10">
       <TanstackTable
-        @edit="openEditCustomer"
+        @edit="customerStore.openEditCustomer"
         @delete="deleteCustomer"
-        @view="openViewCustomer"
+        @view="customerStore.openViewCustomer"
       />
     </div>
     <footer class="w-full flex justify-center mt-auto mb-2">
