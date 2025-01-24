@@ -3,7 +3,7 @@ import { ref, computed } from "vue";
 import { useCustomerStore } from "../stores/Customerstore";
 
 const customerStore = useCustomerStore();
-// i forgot to integrate the wysiwyg editor and when i realized it was too late but everything else is in tiptop shape
+
 const searchQuery = ref("");
 
 const filteredCustomers = computed(() => {

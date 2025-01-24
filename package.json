@@ -12,12 +12,19 @@
     "@formkit/vue": "^1.6.9",
     "@heroicons/vue": "^2.2.0",
     "@tanstack/vue-table": "^8.20.5",
+    "@tiptap/extension-underline": "^2.11.3",
+    "@tiptap/pm": "^2.11.3",
+    "@tiptap/starter-kit": "^2.11.3",
+    "@tiptap/vue-3": "^2.11.3",
     "pinia": "^2.3.0",
     "primeicons": "^7.0.0",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-material-design-icons": "^5.3.1",
+    "vue-router": "^4.5.0",
+    "vue3-quill": "^0.3.1"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
     "autoprefixer": "^10.4.20",

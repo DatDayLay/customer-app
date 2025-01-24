@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 import Navbar from "./components/Navbar.vue";
 import CustomerModal from "./components/CustomerModal.vue";
 import CustomerStats from "./components/CustomerStats.vue";

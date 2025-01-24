@@ -1,7 +1,8 @@
 <script setup>
-import { ref, computed, watch, toRefs } from "vue";
+import { ref, computed, watch } from "vue";
 import allStates from "../naija-states.json";
 import { useCustomerStore } from "../stores/Customerstore";
+import Tiptap from "../components/TipTap.vue";
 import { validateForm } from "../utils/Validation";
 const props = defineProps({
   customer: Object,
@@ -14,7 +15,10 @@ const options = allStates.states.map((state) => ({
   value: state,
 }));
 
-const formData = ref({ ...props.customer });
+const formData = ref({
+  ...props.customer,
+  description: props.customer?.description || "",
+});
 const errors = ref({});
 
 const customerStore = useCustomerStore();
@@ -70,6 +74,7 @@ const handleSubmit = () => {
           class="pi pi-times text-xl text-pink-300 group-hover:text-pink-400"
         ></i>
       </button>
+
       <sub
         class="w-4/5 sm:w-5/6 md:w-full mx-auto flex sm:flex-row flex-col justify-evenly sm:my-6"
       >
@@ -136,7 +141,7 @@ const handleSubmit = () => {
         />
       </sub>
       <sub
-        class="sm:w-2/4 w-4/5 2xl:ml-56 lg:ml-5 xl:ml-6 md:w-full md:ml-2 flex flex-col justify-evenly sm:ml-8 ml-6 px-4 pt-4 mt-2"
+        class="sm:w-4/5 w-2/4 ml-[6%] sm:ml-[7%] md:ml-[2.8%] lg:ml-[5%] md:w-full flex flex-col justify-evenly px-4 pt-4 mt-2"
       >
         <FormKit
           type="select"
@@ -161,6 +166,7 @@ const handleSubmit = () => {
           />
         </FormKit>
       </sub>
+      <Tiptap v-model="formData.description" />
       <aside class="sm:w-fit w-4/5 sm:ml-auto sm:mr-6 mx-auto">
         <FormKit
           type="button"
@@ -211,7 +217,7 @@ const handleSubmit = () => {
           </h1>
         </aside>
       </section>
-      <section class="flex flex-row justify-between mb-16">
+      <section class="flex flex-row justify-between">
         <aside class="flex flex-col ml-10 py-4">
           <h5 class="modalh5">State</h5>
           <h1
@@ -228,6 +234,15 @@ const handleSubmit = () => {
           >
             {{ formData.status ? "Active" : "Inactive" }}
           </h1>
+        </aside>
+      </section>
+      <section class="w-full h-fit flex">
+        <aside class="flex flex-col ml-10 py-4 mb-16">
+          <h5 class="modalh5">Customer Details</h5>
+          <div
+            v-html="formData.description"
+            class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl text-sky-950"
+          ></div>
         </aside>
       </section>
     </div>
