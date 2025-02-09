@@ -6,24 +6,57 @@ const isMenuOpen = ref(false);
 
 <template>
   <nav
-    class="w-full bg-sky-950 p-2 flex flex-col z-10 sm:relative sm:h-fit sm:flex-row justify-between items-center"
+    class="w-[15%] rounded-lg bg-black flex flex-col z-10 sm:relative py-2 h-[97vh] my-auto sm:flex-col justify-between items-center"
   >
-    <h1 class="text-xl text-gray-200 m-auto sm:ml-28 mb-5 lg:mb-0 md:my-auto">
-      Styro<span class="text-2xl text-pink-300 non-italic">Foam</span>
+    <h1
+      class="hidden text-lg lg:inline text-gray-200 w-[96%] lg:mx-auto text-left font-manrope px-[3%]"
+    >
+      Styro<span class="text-xl text-pink-300 non-italic font-cabin">Foam</span>
     </h1>
-    <button
+    <h1
+      class="text-lg text-gray-200 w-[96%] mx-auto text-center font-manrope px-[3%] lg:hidden"
+    >
+      S<span class="text-xl text-pink-300 non-italic font-cabin lg:hidden"
+        >F</span
+      >
+    </h1>
+
+    <ul class="w-full flex flex-col justify-evenly h-[40%]">
+      <li class="sideBarLi">
+        <i class="pi pi-gauge"></i>
+        <span class="sideSpan"> Dashboard</span>
+      </li>
+      <li class="sideBarLi-active">
+        <i class="pi pi-users"></i>
+        <span class="sideSpan"> Customers</span>
+      </li>
+      <li class="sideBarLi">
+        <i class="pi pi-objects-column"></i>
+        <span class="sideSpan"> Products</span>
+      </li>
+      <li class="sideBarLi">
+        <i class="pi pi-chart-bar"></i>
+        <span class="sideSpan"> Analytics</span>
+      </li>
+    </ul>
+    <ul class="w-full mx-auto flex flex-col justify-evenly h-[10%]">
+      <li class="sideBarLi">
+        <i class="pi pi-cog"></i>
+        <span class="sideSpan"> Settings</span>
+      </li>
+      <li class="sideBarLi">
+        <i class="pi pi-power-off"></i>
+        <span class="sideSpan"> Logout</span>
+      </li>
+    </ul>
+    <!-- <button
       class="lg:hidden text-gray-200 absolute flex right-6 top-4"
       @click="isMenuOpen = !isMenuOpen"
     >
       <i class="pi pi-bars"></i>
-    </button>
-    <ul
-      :class="{
-        flex: isMenuOpen,
-        hidden: !isMenuOpen,
-        'lg:flex': true,
-      }"
-      class="flex-col w-3/5 p-0 lg:flex-row lg:w-3/5 justify-evenly items-center space-y-6 lg:space-y-0"
+    </button> -->
+    <!-- <ul
+      class="flex-col w-fit p-0 lg:flex-col lg:w-fit justify-evenly items-center"
     >
       <li class="group menu-item">
         <i class="pi pi-gauge menu-icon"></i>
@@ -41,6 +74,12 @@ const isMenuOpen = ref(false);
         <i class="pi pi-sign-out menu-icon"></i>
         Logout
       </li>
-    </ul>
+    </ul> -->
   </nav>
 </template>
+
+<!-- :class="{
+  flex: isMenuOpen,
+  hidden: !isMenuOpen,
+  'lg:flex': true,
+}" -->

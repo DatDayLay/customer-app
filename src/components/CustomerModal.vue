@@ -87,8 +87,9 @@ const handleSubmit = () => {
           prefix-icon="avatarMan"
           v-model="formData.firstName"
           :classes="{
-            prefixIcon: 'text-sky-950',
-            input: 'text-sky-950',
+            prefixIcon: 'text-black',
+            input: 'text-zinc-950',
+            label: 'text-zinc-900 font-medium  ',
           }"
         />
 
@@ -101,8 +102,9 @@ const handleSubmit = () => {
           prefix-icon="avatarMan"
           v-model="formData.lastName"
           :classes="{
-            prefixIcon: 'text-sky-950',
-            input: 'text-sky-950',
+            prefixIcon: 'text-black',
+            input: 'text-zinc-950',
+            label: 'text-zinc-900 font-medium  ',
           }"
         />
       </sub>
@@ -118,8 +120,9 @@ const handleSubmit = () => {
           prefix-icon="email"
           v-model="formData.email"
           :classes="{
-            prefixIcon: 'text-sky-950',
-            input: 'text-sky-950',
+            prefixIcon: 'text-black',
+            input: 'text-zinc-950',
+            label: 'text-zinc-900 font-medium  ',
           }"
         />
         <FormKit
@@ -135,8 +138,9 @@ const handleSubmit = () => {
             matches: 'Phone number must be 11 digits',
           }"
           :classes="{
-            prefixIcon: 'text-sky-950',
-            input: 'text-sky-950',
+            prefixIcon: 'text-black',
+            input: 'text-zinc-950',
+            label: 'text-zinc-900 font-medium  ',
           }"
         />
       </sub>
@@ -151,18 +155,22 @@ const handleSubmit = () => {
           v-model="formData.state"
           :options="options"
           :classes="{
-            prefixIcon: 'text-sky-950',
-            input: 'text-sky-950',
+            prefixIcon: 'text-black',
+            input: 'text-zinc-950',
+            label: 'text-zinc-900 font-medium  ',
           }"
         />
         <FormKit type="form" :actions="false">
           <FormKit
             type="checkbox"
-            label="Status (active / inactive)"
+            label="Status"
             help="Check to mark as active"
             name="status"
             decorator-icon="check"
             v-model="formData.status"
+            :classes="{
+              label: 'text-zinc-900 font-medium  ',
+            }"
           />
         </FormKit>
       </sub>
@@ -190,46 +198,38 @@ const handleSubmit = () => {
         ></i>
       </button>
       <section class="w-full h-fit flex">
-        <aside class="flex flex-col ml-10 py-4">
+        <aside class="flex flex-col ml-5 md:ml-10 py-4">
           <h5 class="modalh5">Full Name</h5>
-          <h1
-            class="text-md md:text-lg lg:text-xl font-bold font-roboto text-sky-950"
-          >
+          <h1 class="viewModalH1">
             {{ `${formData.firstName} ${formData.lastName}` }}
           </h1>
         </aside>
       </section>
       <section class="flex flex-col sm:flex-row justify-between">
-        <aside class="flex flex-col ml-10 py-2">
+        <aside class="flex flex-col ml-5 md:ml-10 py-2">
           <h5 class="modalh5">Phone Number</h5>
-          <h1
-            class="text-md md:text-lg lg:text-xl font-bold font-roboto text-sky-950"
-          >
+          <h1 class="viewModalH1">
             {{ formData.phoneNumber }}
           </h1>
         </aside>
-        <aside class="flex flex-col ml-10 sm:ml-0 sm:mr-10 py-2">
+        <aside class="flex flex-col ml-5 md:ml-10 sm:mr-5 py-2">
           <h5 class="modalh5">Email Address</h5>
-          <h1
-            class="text-md md:text-lg lg:text-xl font-bold font-roboto text-sky-950"
-          >
+          <h1 class="viewModalH1">
             {{ formData.email }}
           </h1>
         </aside>
       </section>
       <section class="flex flex-row justify-between">
-        <aside class="flex flex-col ml-10 py-4">
+        <aside class="flex flex-col ml-5 md:ml-10 py-4">
           <h5 class="modalh5">State</h5>
-          <h1
-            class="text-md md:text-lg lg:text-xl font-bold font-roboto text-sky-950"
-          >
+          <h1 class="viewModalH1">
             {{ `${formData.state} State(Nigeria)` }}
           </h1>
         </aside>
-        <aside class="flex flex-col mr-10 py-4">
+        <aside class="flex flex-col mr-5 md:mr-10 py-4">
           <h5 class="modalh5">Status</h5>
           <h1
-            class="text-md md:text-lg lg:text-xl font-bold font-roboto"
+            class="text-sm md:text-base font-medium font-manrope"
             :class="customer.status ? 'text-green-700' : 'text-red-800'"
           >
             {{ formData.status ? "Active" : "Inactive" }}
@@ -237,11 +237,11 @@ const handleSubmit = () => {
         </aside>
       </section>
       <section class="w-full h-fit flex">
-        <aside class="flex flex-col ml-10 py-4 mb-16">
+        <aside class="flex flex-col ml-5 md:ml-10 mr-2 py-4 mb-16">
           <h5 class="modalh5">Customer Details</h5>
           <div
             v-html="formData.description"
-            class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl text-sky-950"
+            class="w-[100%] mx-auto text-left text-xs md:text-sm prose font-manrope text-black"
           ></div>
         </aside>
       </section>

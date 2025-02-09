@@ -28,33 +28,38 @@ const inactiveCustomersPercentage = computed(() =>
 </script>
 
 <template>
-  <ul class="flex flex-row justify-evenly w-full h-1/4 p-2">
-    <li class="bg-white statli">
-      <h4 class="statH4">
-        Total customers
-        <i class="pi pi-users statIcon"></i>
-      </h4>
-      <h1 class="statH1">
+  <ul class="flex flex-row justify-evenly w-full h-[20%] lg:h-[25%] p-2">
+    <li class="statli">
+      <h4 class="statH4">customers</h4>
+      <h1 class="statH1 mx-auto w-full text-center">
         {{ totalCustomers }}
       </h1>
     </li>
-    <li class="bg-green-50 statli">
-      <h4 class="statH4">
-        Active(%)
-        <i class="pi pi-users statIcon"></i>
-      </h4>
-      <h1 class="statH1">
-        {{ activeCustomersPercentage }}
-      </h1>
+    <li class="statli">
+      <h4 class="statH4">active</h4>
+      <sub class="flex w-full justify-evenly">
+        <h1 class="statH1">
+          {{ activeCustomersCount }}
+        </h1>
+        <p
+          class="my-auto bg-green-200 w-fit text-green-600 text-center font-zain py-4 px-1 rounded-lg lg:w-[20%]"
+        >
+          {{ `+${activeCustomersPercentage}%` }}
+        </p>
+      </sub>
     </li>
-    <li class="bg-pink-50 statli">
-      <h4 class="statH4">
-        Inactive(%)
-        <i class="pi pi-users statIcon"></i>
-      </h4>
-      <h1 class="statH1">
-        {{ inactiveCustomersPercentage }}
-      </h1>
+    <li class="statli">
+      <h4 class="statH4">inactive</h4>
+      <sub class="flex w-full justify-evenly">
+        <h1 class="statH1">
+          {{ inactiveCustomersCount }}
+        </h1>
+        <p
+          class="my-auto bg-red-200 w-fit text-red-600 text-center font-zain py-4 px-1 rounded-lg lg:w-[20%]"
+        >
+          {{ `+${inactiveCustomersPercentage}%` }}
+        </p>
+      </sub>
     </li>
   </ul>
 </template>

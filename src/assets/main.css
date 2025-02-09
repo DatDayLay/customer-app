@@ -18,17 +18,29 @@
   @apply p-0 mx-auto text-slate-400 hover:text-slate-200 text-xl mt-2;
 }
 .statH4 {
-  @apply my-2 font-sans text-xs md:text-sm lg:text-lg  text-sky-950 font-semibold mx-2 font-sans border-b border-pink-50;
+  @apply my-2 font-sans text-xs md:text-sm lg:text-sm  text-black font-semibold mx-2  border-b border-zinc-900;
 }
 .statH1 {
-  @apply my-6 mx-auto font-semibold text-sm sm:text-sm md:text-lg lg:text-3xl font-roboto  text-sky-950;
+  @apply my-6  lg:w-[50%] w-[30%]  font-semibold text-sm sm:text-sm md:text-lg lg:text-5xl font-roboto  text-black;
 }
 .statli {
-  @apply flex flex-col w-1/4 lg:w-1/5 rounded-lg border border-sky-100 list-none;
+  @apply flex flex-col w-[30%] lg:w-[25%] lg:rounded-3xl shadow-lg rounded-lg border bg-stone-100 border-sky-100 list-none;
 }
 .statIcon {
   @apply text-white text-sm m-auto sm:px-0.5;
 }
 .modalh5 {
   @apply text-xs tracking-widest font-sans text-slate-600;
+}
+.viewModalH1 {
+  @apply text-sm md:text-base font-manrope font-medium text-black;
+}
+.sideBarLi {
+  @apply cursor-pointer w-[96%] mx-auto lg:text-left text-center text-sm font-cabin px-[3%] items-center text-white hover:border-l-4 hover:border-pink-500;
+}
+.sideBarLi-active {
+  @apply cursor-pointer w-[96%] mx-auto lg:text-left text-center text-sm font-cabin px-[3%] items-center text-black rounded-lg bg-white py-[4%];
+}
+.sideSpan {
+  @apply hidden lg:inline ml-[2%];
 }

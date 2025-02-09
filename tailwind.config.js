@@ -9,8 +9,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
-        roboto: ["Roboto", "sans-serif"],
+        sans: ["Poppins", "serif"],
+        roboto: ["Roboto", "serif"],
+        manrope: ["Manrope", "serif"],
+        zain: ["Zain", "serif"],
+        kellySlab: ["Kelly Slab", "serif"],
+        cabin: ["Cabin", "serif"],
       },
       typography: ({ theme }) => ({
         DEFAULT: {

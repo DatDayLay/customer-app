@@ -44,49 +44,51 @@ const emit = defineEmits(["edit", "delete", "view"]);
       </div>
 
       <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+        <div
+          class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8 max-h-[40vh] overflow-y-auto"
+        >
           <table class="min-w-full divide-y divide-gray-300">
             <thead>
               <tr>
                 <th
                   scope="col"
-                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  class="px-3 py-3.5 text-left text-xs font-semibold text-black"
                 >
                   Id
                 </th>
                 <th
                   scope="col"
-                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  class="px-3 py-3.5 text-left text-xs font-semibold text-black"
                 >
                   First name
                 </th>
                 <th
                   scope="col"
-                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  class="px-3 py-3.5 text-left text-xs font-semibold text-black"
                 >
                   Last name
                 </th>
                 <th
                   scope="col"
-                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  class="px-3 py-3.5 text-left text-xs font-semibold text-black"
                 >
                   Email
                 </th>
                 <th
                   scope="col"
-                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  class="px-3 py-3.5 text-left text-xs font-semibold text-black"
                 >
                   Phone Number
                 </th>
                 <th
                   scope="col"
-                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  class="px-3 py-3.5 text-left text-xs font-semibold text-black"
                 >
                   State
                 </th>
                 <th
                   scope="col"
-                  class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  class="px-3 py-3.5 text-left text-xs font-semibold text-black"
                 >
                   Status
                 </th>
@@ -97,29 +99,29 @@ const emit = defineEmits(["edit", "delete", "view"]);
             </thead>
             <tbody class="divide-y divide-gray-200">
               <tr v-for="(customer, index) in filteredCustomers" :key="index">
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-800">
                   {{ index + 1 }}
                 </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-800">
                   {{ customer.firstName }}
                 </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-800">
                   {{ customer.lastName }}
                 </td>
-                <td class="whitespace-nowrap px-0 py-4 text-sm text-gray-500">
+                <td class="whitespace-nowrap px-0 py-4 text-sm text-gray-800">
                   {{ customer.email }}
                 </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-800">
                   {{ customer.phoneNumber }}
                 </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-800">
                   {{ customer.state }}
                 </td>
                 <td
                   class="whitespace-nowrap px-3 py-4 text-sm"
                   :class="customer.status ? 'text-green-700' : 'text-red-800'"
                 >
-                  {{ customer.status ? "Active" : "Inactive" }}
+                  {{ customer.status ? "active" : "inactive" }}
                 </td>
                 <td
                   class="relative cursor-pointer whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0 hover:text-slate-600"
